@@ -1,1 +1,4 @@
-venv/* filter=lfs diff=lfs merge=lfs -text
+
+# Exclude virtual environment files
+venv/* -filter=lfs diff=lfs merge=lfs -text
+
