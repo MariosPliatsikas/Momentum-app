@@ -17,7 +17,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "pliatsikasmarios@gmail.com"
+      "bundleIdentifier": "com.M.Pliatsikas.momentumapp"
     },
     "android": {
       "adaptiveIcon": {
