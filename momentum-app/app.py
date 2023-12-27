@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-
+@app.route('/')
+def home():
+    return "Hello, World!"
 @app.route('/route-optimization', methods=['POST'])
 def optimize_route():
     # Placeholder logic for route optimization using ML
