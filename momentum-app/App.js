@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, Alert } from 'react-native';
 import axios from 'axios';
 
 export default function App() {
@@ -36,6 +36,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image source={require('./assets/logo.png')} style={styles.logo} />
       <Text>Open up App.js to start working on your app!</Text>
       <Button title="Optimize Route" onPress={handleRouteOptimization} />
       <Button title="Get Creative Prompt" onPress={handleCreativePrompt} />
@@ -47,9 +48,26 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#87CEEB', // Light Blue background color
     alignItems: 'center',
     justifyContent: 'center',
+    padding: 20, // Add padding for better spacing
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#fff', // White text color
+  },
+  subtitle: {
+    fontSize: 18,
+    color: '#fff', // White text color
+    marginBottom: 20,
   },
 });
 
