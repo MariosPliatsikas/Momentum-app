@@ -1,10 +1,25 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, Alert } from 'react-native';
 import axios from 'axios';
 import NotificationComponent from './components/NotificationComponent';
 import useNotificationService from './services/NotificationService';
+import { getWeather } from './services/WeatherService';
 
 export default function App() {
+  const [weather, setWeather] = useState(null);
+
+  const handleGetWeather = async () => {
+    try {
+      const response = await WeatherService.getWeather('Kassel');
+      setWeather(response);
+      Alert.alert('Weather Info', `Temperature: ${response.main.temp}°C`);
+    } catch (error) {
+      console.error('Error getting weather:', error.message);
+      Alert.alert('Error', 'Failed to get weather information. Please try again.');
+    }
+  };
+ 
   const handleRouteOptimization = async () => {
     try {
       const response = await axios.post('http://127.0.0.1:5000/route-optimization', {
@@ -52,6 +67,7 @@ export default function App() {
       <Text>Open up App.js to start working on your app!</Text>
       <Button title="Optimize Route" onPress={handleRouteOptimization} />
       <Button title="Get Creative Prompt" onPress={handleCreativePrompt} />
+      <Button title="Get Weather" onPress={handleGetWeather} />
       <StatusBar style="auto" />
     </View>
   );
