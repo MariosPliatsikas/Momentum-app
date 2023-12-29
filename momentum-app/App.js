@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Image, Alert } from 'react-native';
 import axios from 'axios';
+import NotificationComponent from './components/NotificationComponent';
+import useNotificationService from './services/NotificationService';
 
 export default function App() {
   const handleRouteOptimization = async () => {
@@ -19,6 +21,16 @@ export default function App() {
       Alert.alert('Error', 'Failed to optimize route. Please try again.');
     }
   };
+  const App = () => {
+  const notifications = useNotificationService();
+  return (
+    <View>
+      <Text>App Content</Text>
+      {/* Use the NotificationComponent */}
+      <NotificationComponent notifications={notifications} />
+    </View>
+  );
+};
 
   const handleCreativePrompt = async () => {
     try {
@@ -33,7 +45,7 @@ export default function App() {
       Alert.alert('Error', 'Failed to fetch creative prompt. Please try again.');
     }
   };
-
+  
   return (
     <View style={styles.container}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
