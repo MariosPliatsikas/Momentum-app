@@ -89,3 +89,22 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: provide_feedback
+  examples: |
+    - I want to give feedback
+    - Provide feedback
+    - Feedback for the app
+
+- intent: positive_feedback
+  examples: |
+    - I love the app
+    - Great job!
+    - Excellent work
+
+- intent: negative_feedback
+  examples: |
+    - I'm not satisfied
+    - The app needs improvement
+    - I have some concerns
+

@@ -1,0 +1,10 @@
+responses:
+  utter_ask_feedback:
+    - text: "How would you like to provide feedback? You can say something like 'I want to give feedback.'"
+
+  utter_positive_feedback:
+    - text: "Thank you for your positive feedback! We're glad you love the app."
+
+  utter_negative_feedback:
+    - text: "We're sorry to hear that you're not satisfied. Please tell us more about your concerns."
+
