@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, Alert,TextInput } from 'react-native';
 import axios from 'axios';
 import NotificationComponent from './components/NotificationComponent';
 import useNotificationService from './services/NotificationService';
