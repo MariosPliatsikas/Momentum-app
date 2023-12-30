@@ -74,7 +74,7 @@ export default function App() {
   );
 }
 
-const [userMessage, setUserMessage] = useState('');
+  const [userMessage, setUserMessage] = useState('');
   const [botResponse, setBotResponse] = useState('');
 
   const handleSendMessage = async () => {
@@ -100,7 +100,6 @@ const [userMessage, setUserMessage] = useState('');
       <Text>Bot Response: {botResponse}</Text>
     </View>
   );
-}
 
 const styles = StyleSheet.create({
   container: {
