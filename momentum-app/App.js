@@ -5,6 +5,7 @@ import axios from 'axios';
 import NotificationComponent from './components/NotificationComponent';
 import useNotificationService from './services/NotificationService';
 import { getWeather } from './services/WeatherService';
+import FeedbackService from './services/FeedbackService';
 
 export default function App() {
   const [weather, setWeather] = useState(null);
@@ -69,6 +70,34 @@ export default function App() {
       <Button title="Get Creative Prompt" onPress={handleCreativePrompt} />
       <Button title="Get Weather" onPress={handleGetWeather} />
       <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const [userMessage, setUserMessage] = useState('');
+  const [botResponse, setBotResponse] = useState('');
+
+  const handleSendMessage = async () => {
+    try {
+      const response = await FeedbackService.getBotResponse(userMessage);
+      setBotResponse(response);
+    } catch (error) {
+      console.error('Error handling feedback:', error.message);
+      Alert.alert('Error', 'Failed to handle feedback. Please try again.');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>App Content</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Type your message..."
+        onChangeText={(text) => setUserMessage(text)}
+        value={userMessage}
+      />
+      <Button title="Send Message" onPress={handleSendMessage} />
+      <Text>Bot Response: {botResponse}</Text>
     </View>
   );
 }
