@@ -9,6 +9,9 @@ import FeedbackService from './services/FeedbackService';
 
 export default function App() {
   const [weather, setWeather] = useState(null);
+  const [userMessage, setUserMessage] = useState('');
+  const [botResponse, setBotResponse] = useState('');
+  const notifications = useNotificationService();
 
   const handleGetWeather = async () => {
     try {
@@ -37,16 +40,6 @@ export default function App() {
       Alert.alert('Error', 'Failed to optimize route. Please try again.');
     }
   };
-  const App = () => {
-  const notifications = useNotificationService();
-  return (
-    <View>
-      <Text>App Content</Text>
-      {/* Use the NotificationComponent */}
-      <NotificationComponent notifications={notifications} />
-    </View>
-  );
-};
 
   const handleCreativePrompt = async () => {
     try {
@@ -61,21 +54,6 @@ export default function App() {
       Alert.alert('Error', 'Failed to fetch creative prompt. Please try again.');
     }
   };
-  
-  return (
-    <View style={styles.container}>
-      <Image source={require('./assets/logo.png')} style={styles.logo} />
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button title="Optimize Route" onPress={handleRouteOptimization} />
-      <Button title="Get Creative Prompt" onPress={handleCreativePrompt} />
-      <Button title="Get Weather" onPress={handleGetWeather} />
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-  const [userMessage, setUserMessage] = useState('');
-  const [botResponse, setBotResponse] = useState('');
 
   const handleSendMessage = async () => {
     try {
@@ -90,6 +68,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>App Content</Text>
+      <NotificationComponent notifications={notifications} />
+      <Image source={require('./assets/logo.png')} style={styles.logo} />
+      <Text>Open up App.js to start working on your app!</Text>
+      <Button title="Optimize Route" onPress={handleRouteOptimization} />
+      <Button title="Get Creative Prompt" onPress={handleCreativePrompt} />
+      <Button title="Get Weather" onPress={handleGetWeather} />
+      <StatusBar style="auto" />
       <TextInput
         style={styles.input}
         placeholder="Type your message..."
@@ -100,8 +85,10 @@ export default function App() {
       <Text>Bot Response: {botResponse}</Text>
     </View>
   );
+}
 
 const styles = StyleSheet.create({
+  // ... existing styles ...
   container: {
     flex: 1,
     backgroundColor: '#87CEEB', // Light Blue background color
