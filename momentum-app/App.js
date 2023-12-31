@@ -15,7 +15,7 @@ export default function App() {
 
   const handleGetWeather = async () => {
     try {
-      const response = await WeatherService.getWeather('Kassel');
+      const response = await getWeather('Kassel');
       setWeather(response);
       Alert.alert('Weather Info', `Temperature: ${response.main.temp}°C`);
     } catch (error) {
