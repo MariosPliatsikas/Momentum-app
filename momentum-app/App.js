@@ -88,10 +88,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  // ... existing styles ...
   container: {
     flex: 1,
-    backgroundColor: '#87CEEB', // Light Blue background color
+    backgroundColor: '#4CAF50', // Green background color
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20, // Add padding for better spacing
@@ -111,6 +110,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff', // White text color
     marginBottom: 20,
+  },
+  buttonContainer: {
+    marginTop: 20,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
 });
 
