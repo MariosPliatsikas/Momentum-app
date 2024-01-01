@@ -1,7 +1,7 @@
 // WeatherService.js
 import axios from 'axios';
 
-const API_KEY = 'Kajw75a7yQ5PezhkYqGiTokvX982uVnB'; // Replace with your actual API key
+const API_KEY = 'API_Key'; // Replace with your actual API key
 const BASE_URL = 'https://developer.accuweather.com//user/me/apps';
 
 export const getWeather = async (lat, lon) => {
